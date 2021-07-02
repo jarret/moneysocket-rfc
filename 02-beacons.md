@@ -156,6 +156,35 @@ A pathname for the WebSocket url connection.
 2. data:
     * [`len*byte`: `path`]
 
+##### TCP Location TLV
+
+1. type: 1 (`TCP_location`)
+2. data:
+    * [`tlv_stream`: `tlvs`]
+
+###### Generator Preference TLV
+
+An optional value chosen by the generator that indicates it's relative preference for connection locations among the location list for the sought counterpart to rendezvous via. A value of `0` indicates highest preference and a value of `255` indicates lowest preference.
+
+1. type: 0 (`generator_preference`)
+2. data:
+    * [`u8`: `preference`]
+
+###### Hostname TLV
+
+A DNS hostname for where the WebSocket connection request are to be sent.
+
+1. type: 1 (`hostname`)
+2. data:
+    * [`len*byte`: `hostname`]
+
+###### Port TLV
+
+An unsigned integer value for which port number to use for the WebSocket connection.
+
+1. type: 3 (`port`)
+2. data:
+    * [`bigsize`: `port`]
 
 ## Beacons passed via QR Codes
 
